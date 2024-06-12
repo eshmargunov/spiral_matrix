@@ -33,23 +33,23 @@ def spiral(matrix: List[List[int]]) -> List[int]:
     right = cols - 1
 
     while top <= bottom and left <= right:
-        # Traverse left col
+        # обход чисел сверху вниз в левом столбце
         for col in range(left, bottom + 1):
             result.append(matrix[col][top])
         left += 1
 
-        # Traverse bottom row
-        for row in range(left, bottom + 1):
-            result.append(matrix[right][row])
+        # справа налево нижний ряд
+        for row in range(left, right + 1):
+            result.append(matrix[bottom][row])
         bottom -= 1
 
-        # Traverse right col
+        # снизу в вверх правый столбец
         if top <= bottom:
             for col in range(bottom, top - 1, -1):
                 result.append(matrix[col][right])
             right -= 1
 
-        # Traverse top row
+        # справа на налево вверхний ряд.
         if left <= right:
             for row in range(right, left - 1, -1):
                 result.append(matrix[top][row])
